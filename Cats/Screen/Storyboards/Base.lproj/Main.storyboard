@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="P0e-h0-r7s">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="iKC-Ch-iN7">
+            <objects>
+                <navigationController id="P0e-h0-r7s" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="GTq-9I-yLg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ddf-aF-de1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eYS-Po-oO6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-679" y="122"/>
+        </scene>
+        <!--All breeds 🐈-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="BreedsViewController" id="BYZ-38-t0r" customClass="BreedsViewController" customModule="Cats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B8b-Cy-bft">
+                                <rect key="frame" x="0.0" y="176.5" width="375" height="490.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0QT-6t-kxX">
+                                <rect key="frame" x="0.0" y="120.5" width="375" height="56"/>
+                                <color key="tintColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="TIi-a1-NPu"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="B8b-Cy-bft" secondAttribute="bottom" id="C0J-dr-BWf"/>
+                            <constraint firstItem="B8b-Cy-bft" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MJf-lP-joU"/>
+                            <constraint firstItem="0QT-6t-kxX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="Ndt-Oh-UFv"/>
+                            <constraint firstItem="B8b-Cy-bft" firstAttribute="top" secondItem="0QT-6t-kxX" secondAttribute="bottom" id="eS7-8O-nmg"/>
+                            <constraint firstItem="B8b-Cy-bft" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="jPU-qs-Ukt"/>
+                            <constraint firstItem="0QT-6t-kxX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="oBx-Qp-2ie"/>
+                            <constraint firstItem="0QT-6t-kxX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uyK-im-wHh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="All breeds 🐈" id="PkM-ny-ivN">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="3kt-eG-gmT">
+                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="eNR-Sk-H5i">
+                                <rect key="frame" x="192" y="5.5" width="167" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="All"/>
+                                    <segment title="Favourites"/>
+                                </segments>
+                                <connections>
+                                    <action selector="switchListTapped:" destination="BYZ-38-t0r" eventType="valueChanged" id="ZpI-di-Y7l"/>
+                                </connections>
+                            </segmentedControl>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="breedsTable" destination="B8b-Cy-bft" id="FHW-F5-3XV"/>
+                        <outlet property="searchBreed" destination="0QT-6t-kxX" id="GZ8-Ns-dEH"/>
+                        <outlet property="switchList" destination="eNR-Sk-H5i" id="GOe-3E-k58"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138.40000000000001" y="121.88905547226388"/>
+        </scene>
+    </scenes>
+</document>
